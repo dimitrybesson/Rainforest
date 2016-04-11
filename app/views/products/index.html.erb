@@ -1,0 +1,9 @@
+<h1>Products</h1>
+
+<%= link_to 'Add a product', new_product_path %>
+
+<% @products.each do |product| %>
+<p><strong><%= link_to product.name, product_path(product) %></strong> $ <%= product.price_in_cents %> cents</p>
+<p><%= product.description %></p>
+<!-- can I make all of them links to the same show page? -->
+<% end %>
