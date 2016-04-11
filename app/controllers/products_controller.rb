@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create(product_params)
     if @product.save
-      redirect_to products_path # do we need .id?
+      redirect_to products_url # do we need .id?
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
-      redirect_to product_path(@product) # again, do we need .id?
+      redirect_to product_url(@product) # again, do we need .id?
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path
+    redirect_to products_url
   end
 
   private
